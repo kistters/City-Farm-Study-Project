@@ -3,7 +3,6 @@
 from django.conf import settings
 from django.db import migrations, models
 import django.db.models.deletion
-import farm.models
 
 
 class Migration(migrations.Migration):
@@ -16,30 +15,27 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='Commodity',
+            name='Job',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('name', models.CharField(max_length=150, unique=True, verbose_name='name')),
             ],
             options={
-                'verbose_name': 'Commodity',
-                'verbose_name_plural': 'Commodities',
+                'verbose_name': 'Job',
+                'verbose_name_plural': 'Jobs',
             },
-            managers=[
-                ('objects', farm.models.CommodityManager()),
-            ],
         ),
         migrations.CreateModel(
-            name='Food',
+            name='Money',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('produced_at', models.DateTimeField()),
-                ('commodity', models.ForeignKey(on_delete=django.db.models.deletion.PROTECT, related_name='food_related', to='farm.commodity')),
-                ('produced_by', models.ForeignKey(on_delete=django.db.models.deletion.PROTECT, related_name='produced_food', to=settings.AUTH_USER_MODEL)),
+                ('earned_at', models.DateTimeField()),
+                ('earned_by', models.ForeignKey(on_delete=django.db.models.deletion.PROTECT, related_name='earned_money', to=settings.AUTH_USER_MODEL)),
+                ('job', models.ForeignKey(on_delete=django.db.models.deletion.PROTECT, related_name='job_related', to='city.job')),
             ],
             options={
-                'verbose_name': 'Food',
-                'verbose_name_plural': 'Food',
+                'verbose_name': 'Money',
+                'verbose_name_plural': 'Money',
             },
         ),
     ]

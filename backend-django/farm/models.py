@@ -27,7 +27,7 @@ class Commodity(models.Model):
 
 class Food(models.Model):
     commodity = models.ForeignKey(Commodity, on_delete=models.PROTECT, related_name='food_related')
-    farmer_owner = models.ForeignKey(User, on_delete=models.PROTECT, related_name='produced_food')
+    produced_by = models.ForeignKey(User, on_delete=models.PROTECT, related_name='produced_food')
     produced_at = models.DateTimeField()
 
     class Meta:

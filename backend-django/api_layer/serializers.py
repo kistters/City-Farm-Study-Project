@@ -36,8 +36,8 @@ class CommoditySerializer(serializers.ModelSerializer):
 class FoodSerializer(serializers.ModelSerializer):
     class Meta:
         model = Food
-        fields = ('id', 'commodity', 'farmer_owner', 'produced_at')
-        read_only_fields = ['farmer_owner', 'produced_at']
+        fields = ('id', 'commodity', 'produced_by', 'produced_at')
+        read_only_fields = ['produced_by', 'produced_at']
 
 
 class CommoditySummarySerializer(serializers.ModelSerializer):
@@ -57,8 +57,8 @@ class JobSerializer(serializers.ModelSerializer):
 class MoneySerializer(serializers.ModelSerializer):
     class Meta:
         model = Money
-        fields = ('id', 'job', 'citizen_owner', 'produced_at')
-        read_only_fields = ['citizen_owner', 'produced_at']
+        fields = ('id', 'job', 'earned_by', 'earned_at')
+        read_only_fields = ['earned_by', 'earned_at']
 
 
 class JobSummarySerializer(serializers.ModelSerializer):

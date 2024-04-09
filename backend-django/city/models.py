@@ -16,8 +16,8 @@ class Job(models.Model):
 
 class Money(models.Model):
     job = models.ForeignKey(Job, on_delete=models.PROTECT, related_name='job_related')
-    citizen_owner = models.ForeignKey(User, on_delete=models.PROTECT, related_name='earned_money')
-    produced_at = models.DateTimeField()
+    earned_by = models.ForeignKey(User, on_delete=models.PROTECT, related_name='earned_money')
+    earned_at = models.DateTimeField()
 
     class Meta:
         verbose_name = _("Money")

@@ -57,7 +57,7 @@ class ProduceFoodAPIView(generics.CreateAPIView):
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
 
     def perform_create(self, serializer):
-        return serializer.save(farmer_owner=self.request.user, produced_at=timezone.now())
+        return serializer.save(produced_by=self.request.user, produced_at=timezone.now())
 
 
 class CommoditySummaryAPIView(generics.ListAPIView):
@@ -71,7 +71,7 @@ class CommoditySummaryAPIView(generics.ListAPIView):
         queryset = Commodity.objects.annotate(
             summary=Count(
                 'food_related',
-                filter=Q(food_related__farmer_owner=self.request.user)
+                filter=Q(food_related__produced_by=self.request.user)
             )
         )
         return queryset
@@ -90,7 +90,7 @@ class DoTheWorkAPIView(generics.CreateAPIView):
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
 
     def perform_create(self, serializer):
-        return serializer.save(citizen_owner=self.request.user, produced_at=timezone.now())
+        return serializer.save(earned_by=self.request.user, earned_at=timezone.now())
 
 
 class JobSummaryAPIView(generics.ListAPIView):
@@ -104,7 +104,7 @@ class JobSummaryAPIView(generics.ListAPIView):
         queryset = Job.objects.annotate(
             summary=Count(
                 'job_related',
-                filter=Q(job_related__citizen_owner=self.request.user)
+                filter=Q(job_related__earned_by=self.request.user)
             )
         )
         return queryset

@@ -10,7 +10,6 @@ services:
       - ./nginx/conf.d:/etc/nginx/conf.d
     depends_on:
       - backend-django
-      - frontend-vue
     networks:
       - compose-network
 
@@ -30,16 +29,6 @@ services:
         condition: service_healthy
       redis-resource:
         condition: service_healthy
-
-  frontend-vue:
-    build: frontend-vue
-    command: [ "yarn", "serve", "--port=8080" ]
-    ports:
-      - "9000:8080"
-    volumes:
-      - ./frontend-vue:/app
-    networks:
-      - compose-network
 
   postgres-resource:
     image: postgres:16-alpine

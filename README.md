@@ -17,3 +17,10 @@ useful commands:
 $ docker-compose run --rm backend-django python manage.py collectstatic --noinput
 $ docker-compose run --rm backend-django python manage.py migrate
 ```
+
+# install new libs 
+```shell
+cd backend-django
+pipenv install --dev pytest pytest-asyncio
+docker-compose build
+```

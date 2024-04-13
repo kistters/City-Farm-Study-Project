@@ -15,8 +15,8 @@ WORKDIR /app
 
 COPY Pipfile Pipfile.lock /app/
 
-# Install Python dependencies using pipenv
-RUN pipenv install --deploy --ignore-pipfile
+RUN pipenv install --deploy --ignore-pipfile --dev
+
 COPY . /app/
 
 EXPOSE 8080

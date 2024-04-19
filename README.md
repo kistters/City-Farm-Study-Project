@@ -3,12 +3,13 @@ Hello Farmers and Citizens
 Follow terminal command
 
 ```
-$ sudo sh -c 'echo "0.0.0.0 api.cityfarm.com" >> /etc/hosts'
+$ sudo sh -c 'echo "0.0.0.0 api.cityfarm.com cityfarm.com" >> /etc/hosts'
 $ docker-compose up
 ```
 
 access: 
 
+http://cityfarm.com
 http://api.cityfarm.com
 
 useful commands:

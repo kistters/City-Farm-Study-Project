@@ -10,6 +10,7 @@ services:
       - ./nginx.city-farm.conf:/etc/nginx/conf.d/default.conf
       - ./backend-django/staticfiles:/django/static # mapping django collectstatic output
       - ./backend-django/mediafiles:/django/media
+      - ./frontend:/frontend
       - .data/nginx:/var/log/nginx/
     depends_on:
       - backend-django

@@ -3,7 +3,7 @@ COMPOSE_DEV_FILES := -f docker-compose.yml -f docker-compose.dev.yml
 clean:
 	docker rm -f $$(docker ps -q)
 
-start: clean
+start:
 	docker-compose $(COMPOSE_DEV_FILES) up --build -d
 
 test:

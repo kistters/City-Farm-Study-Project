@@ -1,0 +1,9 @@
+version: '3'
+services:
+
+  backend-django:
+    build:
+      context: backend-django
+      target: development
+    command: [ "python", "manage.py", "runserver", "0.0.0.0:8080" ]
+

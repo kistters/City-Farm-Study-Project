@@ -17,8 +17,9 @@ services:
       - compose-network
 
   backend-django:
-    build: backend-django
-    command: [ "python", "manage.py", "runserver", "0.0.0.0:8080" ]
+    build:
+      context: backend-django
+      target: production
 #    command: ["daphne", "-b", "0.0.0.0", "-p", "8080", "config.asgi:application"]
     ports:
       - "8000:8080"

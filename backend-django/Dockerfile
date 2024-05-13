@@ -15,7 +15,7 @@ COPY Pipfile Pipfile.lock /app/
 FROM base as development
 RUN pipenv install --deploy --ignore-pipfile --dev
 COPY . /app/
-CMD ["pytest", "/app/tests/"]
+CMD ["python", "manage.py", "runserver", "0.0.0.0:8080"]
 
 FROM base as production
 RUN pipenv install --deploy --ignore-pipfile

@@ -14,6 +14,7 @@ class Citizen(User):
 
 class Job(models.Model):
     name = models.CharField(_("name"), max_length=150, unique=True)
+    photo = models.ImageField(_('Photo'), null=True, blank=True, upload_to="jobs")
 
     class Meta:
         verbose_name = _("Job")

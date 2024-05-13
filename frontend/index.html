@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>🚜🏘️</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <style>
+        .container {
+            display: flex; /* Use flexbox to arrange child elements side by side */
+        }
+
+        .left-section, .right-section {
+            flex: 1; /* Each section takes equal width */
+            padding: 20px; /* Add padding for some spacing around content */
+        }
+
+        .connection-status {
+            width: 25px; /* Circle size */
+            height: 25px; /* Circle size */
+            border-radius: 50%; /* Create round shape */
+            display: inline-block; /* Make the status indicator inline */
+            margin-left: 10px; /* Space between the input and the indicator */
+        }
+
+        .btn-connected {
+    background-color: lightgreen;
+}
+
+.btn-disconnected {
+    background-color: lightcoral; /* Or any color that indicates a 'disconnect' status */
+}
+    </style>
+</head>
+<body>
+<div id="app">
+    <h2>City-Farm 🚜🏘️</h2>
+    <div class="container">
+        <div class="left-section">
+            <button @click="addConnection('citizen')">New citizen 🏘️</button>
+            <button @click="addConnection('farmer')">New farmer 🚜</button>
+
+            <div v-for="(connection, index) in connections" :key="index">
+                <div>
+                    <button @click="toggleConnection(connection)">
+                        <span v-if="connection.connected">🟢</span>
+                        <span v-if="!connection.connected">🔴</span>
+                    </button>
+                    <input type="text" v-model="connection.token" placeholder="Enter your token here" readonly/>
+                    <div class="connection-status"
+                         :class="{'connected': connection.connected, 'disconnected': !connection.connected}"></div>
+                    <input type="text" v-model="connection.sendMessage" placeholder="Type your message here"/>
+                    <button @click="sendMessage(connection)">Send Message</button>
+                </div>
+            </div>
+        </div>
+        <div class="right-section">
+            <h3>Messages</h3>
+            <div>
+                <div v-for="message in broadcastConnection.messages" :key="message">{{ message }}</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>

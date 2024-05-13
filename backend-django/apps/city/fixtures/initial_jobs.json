@@ -1,0 +1,65 @@
+[
+{
+  "model": "city.job",
+  "pk": 1,
+  "fields": {
+    "name": "Gardener"
+  }
+},
+{
+  "model": "city.job",
+  "pk": 2,
+  "fields": {
+    "name": "Trash Collector"
+  }
+},
+{
+  "model": "city.job",
+  "pk": 3,
+  "fields": {
+    "name": "Lawyer"
+  }
+},
+{
+  "model": "city.job",
+  "pk": 4,
+  "fields": {
+    "name": "Bus Driver"
+  }
+},
+{
+  "model": "city.job",
+  "pk": 5,
+  "fields": {
+    "name": "Magazine Writer"
+  }
+},
+{
+  "model": "city.job",
+  "pk": 6,
+  "fields": {
+    "name": "Firefighter"
+  }
+},
+{
+  "model": "city.job",
+  "pk": 7,
+  "fields": {
+    "name": "Cashier"
+  }
+},
+  {
+  "model": "city.job",
+  "pk": 8,
+  "fields": {
+    "name": "Pet Walker"
+  }
+},
+  {
+  "model": "city.job",
+  "pk": 9,
+  "fields": {
+    "name": "Auto mechanic"
+  }
+}
+]

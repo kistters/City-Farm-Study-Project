@@ -1,4 +1,3 @@
-
 Hello Farmers and Citizens
 
 Follow terminal command
@@ -10,16 +9,28 @@ $ docker-compose up
 
 access: 
 
-http://api.cityfarm.com
-
-http://api.cityfarm.com/admin
-
 http://cityfarm.com
-
+http://api.cityfarm.com
 
 useful commands:
 
 ```shell
 $ docker-compose run --rm backend-django python manage.py collectstatic --noinput
 $ docker-compose run --rm backend-django python manage.py migrate
+
+$ docker-compose up
+```
+
+data folder:
+
+* here we will save logs/data end other good insight output from service
+```shell
+.data/nginx
+.data/postgres
+```
+# install new libs 
+```shell
+cd backend-django
+pipenv install --dev pytest pytest-asyncio
+docker-compose build
 ```

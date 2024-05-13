@@ -1,0 +1,11 @@
+name: test-workflow
+on: push
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Build
+        run: docker volume create --name=city-farm-data && make start
+      - name: Test
+        run: make test

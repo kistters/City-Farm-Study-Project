@@ -5,5 +5,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Build and test
-        run: docker volume create --name=city-farm-data && make test
+      - name: Build
+        run: docker volume create --name=city-farm-data && make start
+      - name: Test
+        run: make test
